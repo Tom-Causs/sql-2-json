@@ -15,19 +15,19 @@ public class Beer {
 
 	@Id
 	@GeneratedValue
-	@Column(name="Id")
+	@Column(name="id")
 	private int id;
 	
-	@Column(name="Name")
+	@Column(name="name")
 	private String brand;
 	
-	@Column(name="CategoryId")
+	@Column(name="categoryid")
     private String category;
 	
-    @Column(name="Alcohol")
+    @Column(name="alcohol")
     private double alcohol;
     
-    @Column(name="Price")
+    @Column(name="price")
     private double price;
 
 }

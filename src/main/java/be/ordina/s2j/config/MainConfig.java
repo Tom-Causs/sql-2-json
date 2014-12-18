@@ -6,7 +6,7 @@ import org.springframework.context.annotation.PropertySource;
 
 /**
  * Main configuration class for the application.
- * Loads externalized application.properties, and sets up the datasource.
+ * Loads externalized application.properties
  */
 @Configuration
 @ComponentScan(basePackages = "be.ordina.s2j")

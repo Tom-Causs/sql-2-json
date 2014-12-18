@@ -7,6 +7,9 @@ import be.ordina.s2j.model.Beer;
  */
 public interface BeerService {
 
+	/**
+	 * Exports {@link Beer} objects
+	 */
 	void export();
 	
 }

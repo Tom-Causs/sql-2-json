@@ -16,6 +16,7 @@ local.properties
 .project
 target/
 .loadpath
+.README.md.html
 
 ### OSX ###
 .DS_Store

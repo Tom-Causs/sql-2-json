@@ -8,6 +8,7 @@ import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import be.ordina.s2j.model.Beer;
@@ -21,7 +22,11 @@ import be.ordina.s2j.util.JsonUtil;
 @Slf4j
 public class JsonBeerService implements BeerService {
 
-	private static final String FILE_NAME = "output.json";
+	private static final String FILE_NAME = "s2j.json.filename";
+	private static final String DEFAULT_FILE_NAME = "output.json";
+
+	@Autowired
+	private Environment env;
 	
 	@Autowired
 	private BeerRepository beerRepository;
@@ -34,11 +39,12 @@ public class JsonBeerService implements BeerService {
 		List<Beer> beerList = beerRepository.findAll();
 		int count = beerList.size();
 		
-		String json = JsonUtil.toJson(beerList);
+		String jsonOutput = JsonUtil.toJson(beerList);
+		String fileName = env.getProperty(FILE_NAME, DEFAULT_FILE_NAME);
 		
 		try {
-			Files.write(Paths.get("./" + FILE_NAME), json.getBytes());
-			log.info("Exporting {} entities into JSON file '{}'", count, FILE_NAME);
+			Files.write(Paths.get("./" + fileName), jsonOutput.getBytes());
+			log.info("Exporting {} entities into JSON file '{}'", count, fileName);
 		} catch (IOException e) {
 			log.error("Failed writing to the file");
 		}

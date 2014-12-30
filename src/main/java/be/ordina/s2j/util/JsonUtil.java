@@ -24,7 +24,7 @@ public final class JsonUtil {
 	 */
 	@SneakyThrows
 	public static String toJson(Object obj) {
-		return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj);
+		return mapper.writeValueAsString(obj);
 	}
 	
 }

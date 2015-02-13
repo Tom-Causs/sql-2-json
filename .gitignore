@@ -6,6 +6,10 @@
 # Spring
 .springBeans
 
+### IntelliJ ###
+.idea/
+*.iml
+
 ### Eclipse ###
 .metadata
 bin/
